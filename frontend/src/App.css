@@ -1,0 +1,29 @@
+html, body {height:100%;}
+html {display:table; width:100%;}
+body {display:table-cell; text-align:center; vertical-align:middle;}
+
+.inputStyle{
+    background-color: #fff;
+    border: solid 1px #ddd;
+    padding: 12px;
+    width: 250px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.selectStyle {
+    background-color: #fff;
+    border: solid 1px #ddd;
+    padding: 12px;
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+}
+    
+
+.logo {
+    width: 4%;
+    height: auto;
+}
