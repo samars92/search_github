@@ -4,8 +4,9 @@ import './App.css';
 import logo from './giticon.png';
 import RepoCard from './components/RepoCard';
 import UserCard from './components/UserCard';
-import { Provider, useDispatch } from "react-redux";
-import {createStore, combineReducers} from 'redux';
+import { Provider } from "react-redux";
+import { store, persistor } from './store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 
 export type Owner = {
@@ -38,12 +39,6 @@ const App = () => {
         console.log(data.data.items);
     }
 
-    const rootReducer = combineReducers({
-        content: result,
-      });
-    
-      const store = createStore(rootReducer);
-
     function handleSearchq(e: React.ChangeEvent<HTMLInputElement>) {
         setSearchq(e.target.value);
     } 
@@ -58,6 +53,7 @@ const App = () => {
 
     return (
         <Provider store={store}> 
+        <PersistGate persistor={persistor}>
         <div>
             <div>
                 <img className="logo" src={logo}></img>
@@ -81,6 +77,7 @@ const App = () => {
             )}
             
         </div>
+        </PersistGate>
         </Provider>
     );
 }
