@@ -35,7 +35,7 @@ const getApiSearchController = (request: Request, response: Response) => {
             })
             .then(function(myJson) {
                 data=JSON.stringify(myJson);
-                client.setex(request.body.q, 3600, data);
+                client.setex(request.body.q, 7200, data);
                 response.statusCode = 200;
                 response.send({
                     data : JSON.parse(data)
