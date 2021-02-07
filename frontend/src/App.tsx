@@ -55,19 +55,21 @@ const App = () => {
         <Provider store={store}> 
         <PersistGate persistor={persistor}>
         <div>
-            <div>
-                <img className="logo" src={logo}></img>
-                <span><b> GitHub Searcher</b> <br/> Search users or repositories below</span>
+            <div className="container">
+                <div className="header">
+                    <img className="logo" src={logo}></img>
+                    <span className="span"><b> GitHub Searcher</b> <br/> <span className="grey">Search users or repositories below</span></span>
+                </div>
+                <form>
+                    <input type="text" value={searchq} className="inputStyle" name="searchq" onChange={handleSearchq} placeholder="Start typing to search .."/>
+                    <select name="type" value={searchType} className="selectStyle" onChange={handleSelect}>
+                        <option value="user">User</option>
+                        <option value="repositories">repositories</option>
+                    </select>
+                </form>
             </div>
-            <form>
-                <input type="text" value={searchq} className="inputStyle" name="searchq" onChange={handleSearchq} placeholder="Start typing to search .."/>
-                <select name="type" value={searchType} className="selectStyle" onChange={handleSelect}>
-                    <option value="user">User</option>
-                    <option value="repositories">repositories</option>
-                </select>
-            </form>
             {debouncedValue && result && (
-                <div className="row">
+                <div className="result-container">
                     {result.map(item => (
                         (searchType == 'repositories'? 
                             <RepoCard id={item.id} name={item.name} owner={item.owner} score={item.score}/> : <UserCard data={item} />

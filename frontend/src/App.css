@@ -1,29 +1,58 @@
 html, body {height:100%;}
+body {
+    vertical-align: middle;
+    display: table-cell;
+}
 html {display:table; width:100%;}
-body {display:table-cell; text-align:center; vertical-align:middle;}
 
+.container{
+    max-width: 33%;
+    margin-left: 33%;
+} 
 .inputStyle{
     background-color: #fff;
     border: solid 1px #ddd;
-    padding: 12px;
+    padding: 10px;
     width: 250px;
     height: 20px;
     display: inline-block;
     vertical-align: middle;
+    margin-right: 5px;
 }
 
 .selectStyle {
     background-color: #fff;
     border: solid 1px #ddd;
-    padding: 12px;
+    padding: 10px;
     width: 120px;
-    height: 40px;
+    height: 42px;
     display: inline-block;
     vertical-align: middle;
 }
     
 
 .logo {
-    width: 4%;
+    width: 10%;
     height: auto;
+    float: left;
+}
+
+.header {
+    overflow: hidden;
+}
+
+.result-container {
+    width: 90%;
+    margin-left: 5%;
+    overflow: hidden;
+}
+
+.span {
+    display: block;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.grey {
+    color: gray;
 }
