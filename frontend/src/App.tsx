@@ -30,7 +30,7 @@ const App = ({dispatch, searchItems, isFetching, searchq, searchType}) => {
 
     useEffect(() => {
         debouncedValue && dispatch(fetchSearchApi(searchq, searchType))
-    }, [debouncedValue && searchq && searchType]);
+    }, [debouncedValue && (searchq || searchType)]);
 
     return (
         <div>
@@ -50,7 +50,7 @@ const App = ({dispatch, searchItems, isFetching, searchq, searchType}) => {
                 </form>
             </div>
             {isFetching && <div className="result-container"><h3>Loading ... </h3></div>}
-            {!isFetching && searchItems && <div className="result-container">
+            {!isFetching && searchItems && debouncedValue && <div className="result-container">
                 {searchItems.map(item => <div key={item.id}>
                         {searchType == 'repositories' &&
                         <RepoCard id={item.id} name={item.name} owner={item.owner} score={item.score}/>}

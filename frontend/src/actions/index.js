@@ -47,7 +47,6 @@ export const ui_searchTypeChange = searchType => dispatch => {
 
 export const fetchSearchApi = (searchq, searchType) => dispatch => {
     dispatch(requestSearch());
-
     const requestOptions = {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
