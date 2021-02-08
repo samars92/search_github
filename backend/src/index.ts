@@ -1,4 +1,3 @@
-import bodyParser from "body-parser";
 import http from 'http';
 import cors from 'cors';
 import getApiSearchController from './controllers/getApiSearchController';
@@ -9,6 +8,7 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const app = express();
 app.use(cors());
+const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const server = new http.Server(app);
 server.listen(process.env.PORT);

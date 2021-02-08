@@ -33,10 +33,10 @@ const App = () => {
                 q: searchq
             }),
         };
+        console.log(requestOptions);
         let res = await fetch('http://localhost:3002/api/search', requestOptions);
         let data = await res.json();
         setResult(data.data.items);
-        console.log(data.data.items);
     }
 
     function handleSearchq(e: React.ChangeEvent<HTMLInputElement>) {

@@ -1,12 +1,10 @@
 import { Request, Response } from 'express';
 
 const getApiSearchController = (request: Request, response: Response) => {
-    
     const fetch = require("node-fetch");
     const redis = require('redis');
     const REDIS_PORT = 6379; 
     const client = redis.createClient(REDIS_PORT);
-    console.log(request.body);
     var data = '';
     var url = '';
     switch(request.body.type) {
@@ -21,7 +19,10 @@ const getApiSearchController = (request: Request, response: Response) => {
     }
 
     const key = request.body.q;
+    console.log(request.body);
+    // move to promise 
     client.get(key, (err:any, data:any) => {
+        // request end
         if (err) throw err;
     
         if (data !== null) {
