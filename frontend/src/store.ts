@@ -38,19 +38,4 @@ const appReducer = (state = initSate, action) => {
     return state;
 }
 
-
-// @ts-ignore
-//export const store = createStore(appReducer);
 export const store = createStore(appReducer, applyMiddleware(thunk));
-
-
-//
-// const persistConfig = {
-//     key: "root",
-//     storage
-// }
-
-//const persistedReducer = persistReducer(persistConfig, reducer);
-//export const store = createStore(persistedReducer);
-
-//export const persistor = persistStore(store);
