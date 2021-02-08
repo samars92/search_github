@@ -43,7 +43,7 @@ const App = ({dispatch, searchItems, isFetching, searchq, searchType}) => {
                 <form>
                     <input type="text" value={searchq} className="inputStyle" name="searchq" onChange={handleSearchq}
                            placeholder="Start typing to search .."/>
-                    <select name="type" value={searchType} className="selectStyle" onChange={handleSelect}>
+                    <select name="searchType" value={searchType} className="selectStyle" onChange={handleSelect}>
                         <option value="user">User</option>
                         <option value="repositories">repositories</option>
                     </select>
