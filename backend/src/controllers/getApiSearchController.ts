@@ -19,10 +19,7 @@ const getApiSearchController = (request: Request, response: Response) => {
     }
 
     const key = request.body.q;
-    console.log(request.body);
-    // move to promise 
     client.get(key, (err:any, data:any) => {
-        // request end
         if (err) throw err;
     
         if (data !== null) {

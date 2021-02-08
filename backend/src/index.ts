@@ -12,6 +12,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const server = new http.Server(app);
 server.listen(process.env.PORT);
+const redis = require('redis');
 
 const swaggerOptions = {
     swaggerDefinition: {
@@ -27,9 +28,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 function clearCache() {
-    const redis = require('redis');
-    const REDIS_PORT = 6379; 
-    const client = redis.createClient(REDIS_PORT);
+    const client = redis.createClient(process.env.REDIS_PORT);
     client.flushall('ASYNC');
     return true;
 }
