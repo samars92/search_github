@@ -18,7 +18,7 @@ client:
 What should be done differently if there was more time:
 * Using redux-persist instead of storing data in local storage 
 * Adding logging and testing API
-* Enhancing Styling
+* Enhancing Styling and showing more information in the result cards
 * Adding pagination for results 
 * Full stability test 
 
